@@ -1,6 +1,6 @@
 class MaxMin:
     @staticmethod
-    def max_min_1(elementos):
+    def max_min_2(elementos):
         max = elementos[0]
         min = elementos[0]
         for valor in elementos[1:]:
@@ -15,5 +15,5 @@ class MaxMin:
 lista_strings = ["qwe", "mgh", "djf", "ois"]
 lista_numeros = [2, 35, 843, 1, -45, 63, 11111, 0]
 
-assert MaxMin.max_min_1(lista_strings) == ("qwe", "djf")
-assert MaxMin.max_min_1(lista_numeros) == (11111, -45)
+assert MaxMin.max_min_2(lista_strings) == ("qwe", "djf")
+assert MaxMin.max_min_2(lista_numeros) == (11111, -45)
