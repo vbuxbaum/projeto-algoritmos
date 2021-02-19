@@ -6,4 +6,4 @@ class Lista:
     class Celula:
         def __init__(self):
             self.item = object()
-            self.proximo = self.Celula()
+            self.proximo = None
