@@ -7,3 +7,7 @@ class Lista:
         def __init__(self):
             self.item = object()
             self.proximo = None
+
+
+lista_vazia = Lista()
+assert isinstance(lista_vazia, Lista)
