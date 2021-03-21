@@ -43,7 +43,6 @@ class Lista:
 lista_teste = Lista(int)
 lista_teste.insere(32)
 
-
 assert isinstance(lista_teste.pega_primeiro().tipo, int)
 
 try:
