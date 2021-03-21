@@ -1,3 +1,13 @@
+"""
+Nesta implementação em Java, o método imprime() lança Strings na saída padrão.
+Para facilitar a implementação de testes, o comportamento desse método foi
+alterado para que apenas retorne as respectivas Strings.
+
+Nomes de classes foram alterados com fins de alcançar neutralidade de
+gênero.
+"""
+
+
 class PessoaEmpregada:
     def __init__(self):
         self._salario = float()
@@ -6,7 +16,7 @@ class PessoaEmpregada:
         return self._salario
 
     def imprime(self):
-        print("Pessoa Empregada")
+        return "Pessoa Empregada"
 
 
 class PessoaSecretaria(PessoaEmpregada):
@@ -15,7 +25,7 @@ class PessoaSecretaria(PessoaEmpregada):
         self.__velocidade_de_digitacao = int()
 
     def imprime(self):
-        print("Pessoa Secretaria")
+        return "Pessoa Secretaria"
 
 
 class Gerente(PessoaEmpregada):
@@ -27,7 +37,7 @@ class Gerente(PessoaEmpregada):
         return self._salario + self.__bonus
 
     def imprime(self):
-        print("Gerente")
+        return "Gerente"
 
 
 # Exemplo de polimorfismo
@@ -36,6 +46,9 @@ pessoa_empregada = PessoaEmpregada()
 pessoa_secretaria = PessoaSecretaria()
 gerente = Gerente()
 
-pessoa_empregada.imprime()
-pessoa_secretaria.imprime()
-gerente.imprime()
+assert pessoa_empregada.imprime() == "Pessoa Empregada"
+assert pessoa_secretaria.imprime() == "Pessoa Secretaria"
+assert gerente.imprime() == "Gerente"
+
+assert isinstance(pessoa_secretaria, PessoaEmpregada)
+assert isinstance(gerente, PessoaEmpregada)
