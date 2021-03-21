@@ -10,4 +10,5 @@ class Lista:
 
 
 lista_vazia = Lista()
+
 assert isinstance(lista_vazia, Lista)
