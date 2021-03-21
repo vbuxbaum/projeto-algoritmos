@@ -10,3 +10,7 @@ class PainelDeControle:
     def desligar_forno(self):
         # Código do método
         pass
+
+
+painel_teste = PainelDeControle()
+assert isinstance(painel_teste, PainelDeControle)
