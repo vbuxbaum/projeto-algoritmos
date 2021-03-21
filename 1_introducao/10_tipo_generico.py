@@ -14,11 +14,40 @@ segue abaixo
 
 class Lista:
     def __init__(self, tipo=object):
-        self.__tipo_de_item = tipo
-        self.__primeira = self.Celula(self.__tipo_de_item)
-        self.__ultima = self.Celula(self.__tipo_de_item)
+        self.tipo = tipo
+        self.__primeira = self.Celula(self.tipo)
+        self.__ultima = self.Celula(self.tipo)
+
+        self.__primeira.proximo = self.__ultima
+
+    def insere(self, elemento):
+        if isinstance(elemento, self.tipo):
+            nova_celula = self.Celula(self.tipo, elemento)
+            nova_celula.proximo = self.__primeira.proximo
+            self.__primeira.proximo = nova_celula
+        else:
+            raise TypeError(
+                "Esta Lista apenas aceita elementos do tipo " + str(self.tipo)
+            )
+
+    def pega_primeiro(self):
+        return self.__primeira.proximo
 
     class Celula:
-        def __init__(self, tipo=object):
-            self.item = tipo()
+        def __init__(self, tipo=object, valor=None):
+            self.tipo = tipo()
             self.proximo = None
+            self.valor = valor
+
+
+lista_teste = Lista(int)
+lista_teste.insere(32)
+
+assert isinstance(lista_teste.pega_primeiro().tipo, int)
+
+try:
+    lista_teste.insere("Uma string qualquer")
+except TypeError:
+    pass
+else:
+    print("Era esperado um TypeError ao inserir uma String na classe Lista ")
