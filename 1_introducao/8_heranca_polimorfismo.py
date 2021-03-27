@@ -36,6 +36,15 @@ class Gerente(PessoaEmpregada):
     def salario_mensal(self):
         return self._salario + self.__bonus
 
+    # implementação 1.11:
+    def salario_mensal(self, desconto):
+        return self._salario + self._bonus - desconto
+
+    # implementação 1.11 alternativa:
+    #
+    # def salario_mensal(self, desconto=0):
+    #     return self._salario + self.__bonus - desconto
+
     def imprime(self):
         return "Gerente"
 
