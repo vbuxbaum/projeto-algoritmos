@@ -17,16 +17,28 @@ class ArvoreBinaria:
     def __init__(self):
         self.no_raiz = None
 
+
+
     def insere(self, no):
+        antecessor = None
         no_atual = self.no_raiz
 
         while no_atual:
+            antecessor = no_atual
             if no < no_atual:
                 no_atual = no_atual.no_esquerdo
             else:
                 no_atual = no_atual.no_direito
+                
+        if no.valor > antecessor.valor:
+            antecessor.no_direito = no
+        else:
+            antecessor.no_esquerdo = no
 
         no_atual = no
+
+    def retira(self, no):
+
 
 
 if __name__ == "__main__":
