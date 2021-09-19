@@ -25,16 +25,16 @@ class MaxMinRecursivo:
             metade = len(numeros) // 2
             check_head = cls.max_min(numeros[:metade])
             check_tail = cls.max_min(numeros[metade:])
-            resultado_max_min["max"] = cls.decide_max(check_head, check_tail)
-            resultado_max_min["min"] = cls.decide_min(check_head, check_tail)
+            resultado_max_min["max"] = cls._decide_max(check_head, check_tail)
+            resultado_max_min["min"] = cls._decide_min(check_head, check_tail)
         return resultado_max_min
 
     @classmethod
-    def decide_max(cls, head, tail):
+    def _decide_max(cls, head, tail):
         return head["max"] if head["max"] > tail["max"] else tail["max"]
 
     @classmethod
-    def decide_min(cls, head, tail):
+    def _decide_min(cls, head, tail):
         return head["min"] if head["min"] < tail["min"] else tail["min"]
 
 
