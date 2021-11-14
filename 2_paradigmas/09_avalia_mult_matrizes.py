@@ -1,6 +1,3 @@
-from rich import print
-
-
 def main():
     numero_matrizes = coleta_numero_inteiro("Número de matrizes")
 
@@ -46,11 +43,11 @@ def imprime_matriz(matriz: list[list]):
     print("]")
 
 
-def custos(matriz_de_zeros: list[list], dimensoes: list, i, j, k):
+def custos(matriz_de_zeros: list[list], dimensoes: list, i1, i2, i3):
     return (
-        matriz_de_zeros[i - 1][k - 1]
-        + matriz_de_zeros[k][j - 1]
-        + (dimensoes[i - 1] * dimensoes[k] * dimensoes[j])
+        matriz_de_zeros[i1 - 1][i3 - 1]
+        + matriz_de_zeros[i3][i2 - 1]
+        + (dimensoes[i1 - 1] * dimensoes[i3] * dimensoes[i2])
     )
 
 
