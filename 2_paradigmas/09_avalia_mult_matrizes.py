@@ -43,7 +43,7 @@ def imprime_matriz(matriz: list[list]):
     print("]")
 
 
-def custos(matriz_de_zeros: list[list], dimensoes: list, i1, i2, i3):
+def calcula_custo(matriz_de_zeros: list[list], dimensoes: list, i1, i2, i3):
     return (
         matriz_de_zeros[i1 - 1][i3 - 1]
         + matriz_de_zeros[i3][i2 - 1]
@@ -55,14 +55,15 @@ def preenche_custos(matriz_de_zeros: list[list], dimensoes: list):
     for h in range(1, len(matriz_de_zeros)):
         for i in range(1, len(matriz_de_zeros) - h + 1):
             j = i + h
-            custo_atual = custos(matriz_de_zeros, dimensoes, i, j, i)
+            custo_atual = calcula_custo(matriz_de_zeros, dimensoes, i, j, i)
 
             for k in range(i + 1, j):
                 custo_atual = min(
-                    custo_atual, custos(matriz_de_zeros, dimensoes, i, j, k)
+                    custo_atual,
+                    calcula_custo(matriz_de_zeros, dimensoes, i, j, k),
                 )
-            matriz_de_zeros[i - 1][j - 1] = custo_atual
             print(f"m[{i}][{j}] = {custo_atual}")
+            matriz_de_zeros[i - 1][j - 1] = custo_atual
         print()
     return matriz_de_zeros
 
