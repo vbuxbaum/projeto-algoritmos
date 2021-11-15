@@ -5,7 +5,8 @@ registro.
 
 Vamos utilizar a estrutura 'array' do módulo Numpy do Python.
 
-Ao invés 
+Ao invés de fazer a verificação de igualdade na *referencia* dos objetos, foi
+feito verificando apenas igualdade de valor (operador ==)
 """
 
 import numpy as np
