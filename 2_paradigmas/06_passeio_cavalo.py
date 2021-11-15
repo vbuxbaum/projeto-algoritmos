@@ -1,4 +1,15 @@
-from pprint import pprint
+'''Uso de lru_cache na função tenta()
+> python3 06_passeio_cavalo.py CACHE_SIZE
+
+O melhor valor de CACHE_SIZE nos testes foi 15'''
+
+
+import sys
+from timeit import timeit
+from functools import lru_cache
+from rich import print
+
+MAX_CACHE = int(sys.argv[1])
 
 
 class PasseioCavalo:
@@ -21,7 +32,12 @@ class PasseioCavalo:
         ]
         self.tabuleiro[inicio[0]][inicio[1]] = 1
 
+        self.count_tenta = 0
+
+    @lru_cache(maxsize=MAX_CACHE)
     def tenta(self, passo_n, pos_x, pos_y):
+
+        self.count_tenta += 1
         for direcao in self.PASSOS:
             ctrl_sucesso = False
 
@@ -61,7 +77,16 @@ class PasseioCavalo:
         self.tabuleiro[x][y] = 0
 
 
+def main(N):
+    p = PasseioCavalo(N)
+    print(f"Começando com N = {N} e max_cache = {MAX_CACHE}")
+    p.tenta(2, 0, 0)
+    if p.tabuleiro:
+        print("> > > count_ITER: " + str(p.count_tenta))
+    p.tenta.cache_clear()
+
+
 if __name__ == "__main__":
-    p = PasseioCavalo(5)
-    if p.tenta(2, 0, 0):
-        pprint(p.tabuleiro)
+
+    for N in range(4, 8):
+        print("> > > time: " + str(timeit(lambda: main(N), number=1)))
