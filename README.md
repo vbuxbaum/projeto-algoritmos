@@ -26,4 +26,4 @@ Como o repositório é inspirado no livro *Projeto de Algoritmos*, a estrutura d
 7. Algoritmos em Grafos
 8. Processamento de Cadeias de Caracteres
 9. Problemas NP-Completo e Heuristicas
- 
+
